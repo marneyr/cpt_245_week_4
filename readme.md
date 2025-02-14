@@ -54,7 +54,7 @@ By the end of this assignment you will have learned about REST APIs, the "Spring
 
      Wait until the Java project has started without error.
      
-   - Next, please [install Postman](https://www.postman.com/downloads/).  You will be prompted to create a free account and please do so!  Then you can "import" the "postman.json" file from this repository. This will give you the commands for the "Students" Controller.  With the Vagrant VM and Spring REST API running you should be able to run any of the endpoints given to you in this file and get successful responses!
+   - Next, please [install Postman](https://www.postman.com/downloads/).  You will be prompted to create a free account and please do so!  Then you can "import" the "postman.json" file from this repository. This will give you the commands for the "Students" Controller.  With the Vagrant VM and Spring REST API running you should be able to run any of the endpoints given to you in this file and get successful responses!.
   
    - Now that you have validated that the Spring project is running it's time to get to work!  Please update the "ClassesController.java" to have the same GET/POST/PUT/DELETE endpoints using the "StudentsController.java" as a guide.  This will provide you with the basic syntax you need to make the classes endpoint work. As you're developing these endpoints please add new "test" methods in your Postman application (again using the Students endpoints as a guide) so you can validate that your "Classes" endpoints are working well! 
   
