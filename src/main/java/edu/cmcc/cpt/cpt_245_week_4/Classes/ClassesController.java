@@ -20,7 +20,7 @@ public class ClassesController {
     public List<Classes> getAllClasses() {
         String sql = "SELECT * FROM classes;";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
-            Classes classes = new class();
+            Classes classes = new classes();
             student.setClassCode(rs.getString("class_code"));
             student.setClassName(rs.getString("class_name"));
 
