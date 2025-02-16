@@ -20,10 +20,9 @@ public class ClassesController {
     public List<Classes> getAllClasses() {
         String sql = "SELECT * FROM classes;";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
-            Classes classes = new classes();
+            Classes classes = new Classes();
             classes.setClassCode(rs.getString("class_code"));
             classes.setClassName(rs.getString("class_name"));
-
             return classes;
         });
     }
@@ -34,14 +33,15 @@ public class ClassesController {
         return jdbcTemplate.queryForObject(sql, new Object[]{class_code}, (rs, rowNum) -> {
             Classes classes = new Classes();
             classes.setClassCode(rs.getString("class_code"));
+            classes.setClassName(rs.getString("class_name"));
             return classes;
         });
     }
 
     @PostMapping
     public void createClass(@RequestBody Classes classes) {
-        String sql = "INSERT INTO classes (class_code, class_name) VALUES (?, ?)";
-        jdbcTemplate.update(sql, classes.getClassCode(), classes.getClassName());
+        String sql = "INSERT INTO classes (class_name) VALUES (?)";
+        jdbcTemplate.update(sql, classes.getClassName());
     }
 
     @PutMapping("/{class_code}")
