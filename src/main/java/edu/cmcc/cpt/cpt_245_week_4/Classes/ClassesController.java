@@ -9,7 +9,7 @@ import edu.cmcc.cpt.cpt_245_week_4.Student.Student;
 import java.util.List;
 
 @RestController
-@RequestMapping("/students")
+@RequestMapping("/classes")
 public class ClassesController {
 
 
@@ -21,8 +21,8 @@ public class ClassesController {
         String sql = "SELECT * FROM classes;";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             Classes classes = new classes();
-            student.setClassCode(rs.getString("class_code"));
-            student.setClassName(rs.getString("class_name"));
+            classes.setClassCode(rs.getString("class_code"));
+            classes.setClassName(rs.getString("class_name"));
 
             return classes;
         });
@@ -30,7 +30,7 @@ public class ClassesController {
 
     @GetMapping("/{class_code}")
     public Classes getClassesByClassCode(@PathVariable String class_code) {
-        String sql = "SELECT * FROM classes WHERE id = ?";
+        String sql = "SELECT * FROM classes WHERE class_code = ?";
         return jdbcTemplate.queryForObject(sql, new Object[]{class_code}, (rs, rowNum) -> {
             Classes classes = new Classes();
             classes.setClassCode(rs.getString("class_code"));
@@ -40,7 +40,7 @@ public class ClassesController {
 
     @PostMapping
     public void createClass(@RequestBody Classes classes) {
-        String sql = "INSERT INTO classes (c;ass_code, class_name) VALUES (?, ?)";
+        String sql = "INSERT INTO classes (class_code, class_name) VALUES (?, ?)";
         jdbcTemplate.update(sql, classes.getClassCode(), classes.getClassName());
     }
 
